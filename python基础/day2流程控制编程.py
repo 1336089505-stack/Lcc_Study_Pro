@@ -155,6 +155,7 @@ while True:
             num2 = float(nums[2])
         except ValueError:
             print("输入正确数字：")
+            continue
         if nums[1] == "+":
             print("num1 + num2 =", num1 + num2)
         elif nums[1] == "-":
@@ -164,7 +165,7 @@ while True:
         elif nums[1] == "/":
             try:
                 print("num1 / num2 =", num1 / num2)
-            except ValueError:
+            except ZeroDivisionError:
                 print("除零错误")
         else:
             print("输入正确运算符")
