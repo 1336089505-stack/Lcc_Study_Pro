@@ -27,17 +27,20 @@ o	如果number>0，返回True
 o	如果number<=0，抛出NegativeNumberError，异常信息为"输入的数字必须为正数"
 编写测试代码，捕获该异常并打印异常信息。
 """
-"""
+
 class NegativeNumberError(Exception):
     def __init__(self,error_msg = "输入的数字必须为正数"):
         self.error_msg = error_msg
+    def __str__(self):
+        return self.error_msg
+
 
 def check_positive(number):
     if number <= 0:
         raise NegativeNumberError()
     else:
         return True
-"""
+
 
 """
 3.	使用assert语句编写一个函数validate_age(age)，验证年龄的合法性：
@@ -107,7 +110,10 @@ if __name__ == '__main__':
 
     """
     print(check_positive(10))
-    print(check_positive(-10))
+    try:
+        print(check_positive(-10))
+    except NegativeNumberError as e:
+        print(e)
     """
 
     """
