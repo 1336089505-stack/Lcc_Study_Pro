@@ -16,8 +16,6 @@ def safe_divide(a,b):
     except:
         info =  "参数类型错误"
     return info,"除法运算完成"
-
-
 """
 
 """
@@ -41,7 +39,6 @@ def check_positive(number):
     else:
         return True
 
-
 """
 3.	使用assert语句编写一个函数validate_age(age)，验证年龄的合法性：
 o	age必须是整数
@@ -64,8 +61,6 @@ o	如果with块中发生异常，在日志中记录异常信息
 import time
 
 class FileLogger:
-    filelogger = None
-
     def __init__(self,file_name = "./day8Python异常处理_文件/logger.txt", mode = 'utf-8'):
         self.file_name = file_name
         self.mode = mode

@@ -41,6 +41,7 @@ class Student:
 •	在__init__中接受一个value参数，并将其赋值给实例的data属性。
 编写代码测试，创建两个Singleton对象，检查它们是否是同一个对象（id()是否相同），并打印它们的data属性。
 """
+
 """
 class Singleton:
     _instance = None
@@ -71,23 +72,25 @@ class Singleton:
 """
 class LimitedInstances:
     _instances = []
-    def __new__(cls, *args, **kwargs):
+    def __new__(cls, *args, **kwargs):#给这个类分配一个内存空间，返回这个实例的对象
         if len(cls._instances) < 3:
-            inside= super().__new__(cls)
+            inside = super().__new__(cls)
             cls._instances.append(inside)
         else:
             raise RuntimeError("已达到最大实例数量限制（3个）")
         print(inside)
-        return inside
+        return super().__new__(cls)
 
     def __init__(self,data):
         self.data = data
+
 
     def __del__(self):
         print(f"❌ 销毁对象: {self.data}")
         print(self,self._instances)
         if self in self._instances:
             self._instances.remove(self)
+
 
 
 """
