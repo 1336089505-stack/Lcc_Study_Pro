@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 class ArticleRepository:
     def __init__(self, session: Session):
         self.session = session
-        
+
     def get_all(self,article: list[Article]):
         """
         添加文章
