@@ -1,0 +1,105 @@
+{
+  "date": "20260108",
+  "stories": [
+    {
+      "image_hue": "0x366681",
+      "title": "西西伯利亚在气象学中有什么特殊的地位，为什么每次冷空气都从那里开始，而不是北极地区？",
+      "url": "https://daily.zhihu.com/story/9786607",
+      "hint": "气象喵探员 · 5 分钟阅读",
+      "ga_prefix": "010807",
+      "images": [
+        "https://picx.zhimg.com/v2-c7203a9e1f043629976f14219ac41869.jpg?source=8673f162"
+      ],
+      "type": 0,
+      "id": 9786607
+    },
+    {
+      "image_hue": "0x6e7a56",
+      "title": "消失 30 年的「中国豹」重现北京附近，这一生态事件对当地生物多样性有何意义？",
+      "url": "https://daily.zhihu.com/story/9786615",
+      "hint": "三眼乌鸦 · 8 分钟阅读",
+      "ga_prefix": "010807",
+      "images": [
+        "https://pic1.zhimg.com/v2-59a1392bfeca0862aa5a3797cd47a0f3.jpg?source=8673f162"
+      ],
+      "type": 0,
+      "id": 9786615
+    },
+    {
+      "image_hue": "0x332a24",
+      "title": "听说「睡前喝红酒能助眠还能软化血管」，红酒的这些功效是真的，还是夸大其词？",
+      "url": "https://daily.zhihu.com/story/9786623",
+      "hint": "云杉 · 2 分钟阅读",
+      "ga_prefix": "010807",
+      "images": [
+        "https://picx.zhimg.com/v2-04a031eb210889d78a66b81b8fce60f3.jpg?source=8673f162"
+      ],
+      "type": 0,
+      "id": 9786623
+    },
+    {
+      "image_hue": "0x66573a",
+      "title": "瞎扯 · 如何正确地吐槽",
+      "url": "https://daily.zhihu.com/story/9786527",
+      "hint": "VOL.3819",
+      "ga_prefix": "010806",
+      "images": [
+        "https://picx.zhimg.com/v2-3cb34e5ef4a52b44ddf998748ef0b535.jpg?source=8673f162"
+      ],
+      "type": 0,
+      "id": 9786527
+    }
+  ],
+  "top_stories": [
+    {
+      "image_hue": "0x366681",
+      "hint": "作者 / 气象喵探员",
+      "url": "https://daily.zhihu.com/story/9786607",
+      "image": "https://picx.zhimg.com/v2-7aa768d52af233c13b3dbfc46afdcc70.jpg?source=8673f162",
+      "title": "西西伯利亚在气象学中有什么特殊的地位，为什么每次冷空气都从那里开始，而不是北极地区？",
+      "ga_prefix": "010807",
+      "type": 0,
+      "id": 9786607
+    },
+    {
+      "image_hue": "0x505133",
+      "hint": "作者 / 冯海峰",
+      "url": "https://daily.zhihu.com/story/9786591",
+      "image": "https://picx.zhimg.com/v2-e74cf1be6f4e60de67ccce962d77a631.jpg?source=8673f162",
+      "title": "都说长得越快的树木越不成材，但为什么竹子长那么快强度却很好，甚至可以用来做建材呢？",
+      "ga_prefix": "010707",
+      "type": 0,
+      "id": 9786591
+    },
+    {
+      "image_hue": "0x4a3f34",
+      "hint": "作者 / 犬君拌汪酱",
+      "url": "https://daily.zhihu.com/story/9786569",
+      "image": "https://pica.zhimg.com/v2-f96aa284817cbc409d54372100a981d2.jpg?source=8673f162",
+      "title": "软体动物在维持海洋生态平衡中扮演了什么角色？",
+      "ga_prefix": "010607",
+      "type": 0,
+      "id": 9786569
+    },
+    {
+      "image_hue": "0xb39c79",
+      "hint": "作者 / 瞻云",
+      "url": "https://daily.zhihu.com/story/9786548",
+      "image": "https://picx.zhimg.com/v2-9261da88ba03d7b522416cd585bce226.jpg?source=8673f162",
+      "title": "为什么人类会进化出如此娇嫩的脚呢？",
+      "ga_prefix": "010507",
+      "type": 0,
+      "id": 9786548
+    },
+    {
+      "image_hue": "0x1c0d13",
+      "hint": "作者 / 苏澄宇",
+      "url": "https://daily.zhihu.com/story/9786475",
+      "image": "https://picx.zhimg.com/v2-a8bb4408aa4cd7f79bb5c9579a49e4a3.jpg?source=8673f162",
+      "title": "宇宙本身是什么颜色的？",
+      "ga_prefix": "010407",
+      "type": 0,
+      "id": 9786475
+    }
+  ]
+}

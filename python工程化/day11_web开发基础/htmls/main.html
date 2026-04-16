@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>题目列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 24px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .tag {
+              display: inline-block;
+              padding: 4px 10px;
+              margin: 4px 6px 4px 0;
+              border-radius: 20px; /* 圆角胶囊风格 */
+              font-size: 13px;
+              font-weight: 500;
+              color: #fff;
+              background-color: #409eff; /* 默认蓝色 */
+              line-height: 1.4;
+              white-space: nowrap;
+              transition: all 0.2s ease;
+              cursor: default;
+        }
+        .tag:hover {
+          opacity: 0.85;
+          transform: translateY(-1px);
+        }
+        .difficulty-easy {
+            color: #4caf50;
+        }
+        .difficulty-medium {
+            color: #ff9800;
+        }
+        .difficulty-hard {
+            color: #f44336;
+        }
+        .type-choice {
+            color: #2196f3;
+        }
+        .type-judge {
+            color: #9c27b0;
+        }
+        .type-short_answer {
+            color: #795548;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .delete-btn {
+            background-color: #f44336;
+        }
+        .delete-btn:hover {
+            background-color: #da190b;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .pagination button {
+            padding: 5px 10px;
+        }
+        .disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .search-box input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .search-box button {
+            padding: 10px 20px;
+        }
+        .clear-search {
+            background-color: #666;
+        }
+        .clear-search:hover {
+            background-color: #555;
+        }
+        .search-result-info {
+            text-align: center;
+            color: #666;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Question List -->
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h1>题目列表</h1>
+            <a href="/add">
+                <button>添加题目</button>
+            </a>
+        </div>
+        
+        <form method="get" action="/" class="search-box">
+            <input type="text" name="search" placeholder="搜索题目标题、内容或标签..." value="{{ search }}">
+            <button type="submit">搜索</button>
+        </form>
+
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>题目标题</th>
+                    <th>题目内容</th>
+                    <th>题目答案</th>
+                    <th>难度等级</th>
+                    <th>题目类型</th>
+                    <th>题目标签</th>
+                    <th>题目分数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for question in questions %}
+                <tr>
+                    <td>{{ question.id }}</td>
+                    <td>{{ question.title }}</td>
+                    <td>{{ question.content }}</td>
+                    <td>{{ question.answer }}</td>
+                    <td class="difficulty-{{ question.level }}">{{ question.level }}</td>
+                    <td class="type-{{ question.type }}">{{ question.type }}</td>
+                    <td>
+                        <div class="tags">
+                            {% for tag in question.tags.split(',') %}
+                            <span class="tag">{{ tag.strip() }}</span>
+                            {% endfor %}
+                        </div>
+                    </td>
+                    <td>{{ question.score }}</td>
+                    <td>
+                        <a href="/delete/{{ question.id }}" onclick="return confirm('确定要删除这个题目吗？');">
+                            <button class="delete-btn">删除</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <!-- Pagination -->
+        <div class="pagination">
+            {% if search %}
+            <button {% if page == 1 %}class="disabled"{% endif %} onclick="{% if page > 1 %}window.location.href='/?page={{ page - 1 }}&search={{ search }}'{% endif %}">
+                上一页
+            </button>
+            <span>第 {{ page }} 页，共 {{ total_pages }} 页</span>
+            <button {% if page == total_pages %}class="disabled"{% endif %} onclick="{% if page < total_pages %}window.location.href='/?page={{ page + 1 }}&search={{ search }}'{% endif %}">
+                下一页
+            </button>
+            {% else %}
+            <button {% if page == 1 %}class="disabled"{% endif %} onclick="{% if page > 1 %}window.location.href='/?page={{ page - 1 }}'{% endif %}">
+                上一页
+            </button>
+            <span>第 {{ page }} 页，共 {{ total_pages }} 页</span>
+            <button {% if page == total_pages %}class="disabled"{% endif %} onclick="{% if page < total_pages %}window.location.href='/?page={{ page + 1 }}'{% endif %}">
+                下一页
+            </button>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

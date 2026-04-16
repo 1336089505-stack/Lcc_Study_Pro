@@ -1,0 +1,699 @@
+/* ======================================
+  1. 全局样式（所有页面统一）
+====================================== */
+/* ======================================
+  查询区域样式（严格按需求实现）
+====================================== */
+.query-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* 响应式自动换行 */
+}
+
+.input-item {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 36px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.input-item:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+/* 价格区间输入框 */
+.price-item {
+  width: 120px;
+}
+
+/* 价格区间分隔符 */
+.price-sep {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 查询按钮（复用全局btn样式） */
+.query-btn {
+  height: 36px;
+}
+
+/* ======================================
+  表格样式（严格按全局规范）
+====================================== */
+.table-box {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.my-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* 表头固定 */
+.my-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.my-table th {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
+  height: 40px;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.my-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  border: 1px solid #ddd;
+}
+
+/* 斑马行 */
+.my-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+.my-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.my-table tbody tr:hover {
+  background: #e3f2fd !important;
+}
+
+/* 表格内按钮 */
+.btn-edit {
+  padding: 4px 10px;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-del {
+  padding: 4px 10px;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-edit:hover, .btn-del:hover {
+  opacity: 0.9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 状态标签 */
+.tag {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.tag.on {
+  background: #67c23a;
+}
+
+.tag.off {
+  background: #f56c6c;
+}
+
+/* ======================================
+  分页样式（严格按全局规范）
+====================================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.pagination button.active {
+  background: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+
+.pagination button:hover:not(.active):not(:disabled) {
+  background: #f5f5f5;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ======================================
+  响应式适配
+====================================== */
+@media (max-width: 768px) {
+  .query-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-item, .price-item {
+    width: 100%;
+  }
+
+  .table-box {
+    overflow-x: auto;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 768px;
+  font-family: "Microsoft YaHei", "SimSun", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* 页面标题 */
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-left: 4px solid #3498db;
+  padding-left: 10px;
+}
+
+/* 全局按钮 */
+.btn {
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-default {
+  background-color: #ecf0f1;
+  color: #333;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 提示信息 */
+.alert-success {
+  background: #dff0d8;
+  border: 1px solid #d6e9c6;
+  color: #3c763d;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 13px;
+}
+
+.alert-error {
+  background: #f2dede;
+  border: 1px solid #ebccd1;
+  color: #a94442;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 13px;
+}
+
+/* ======================================
+  2. 列表页样式
+====================================== */
+/* 查询区域 */
+.query-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.query-box .input-item,
+.query-box .select-item {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 36px;
+}
+
+.query-box .input-item {
+  width: 200px;
+}
+
+/* 表格容器 */
+.table-box {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* 表格 */
+.my-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* 表头固定 */
+.my-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.my-table th {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
+  height: 40px;
+  padding: 12px;
+}
+
+.my-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 斑马行 */
+.my-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+.my-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.my-table tbody tr:hover {
+  background: #e3f2fd !important;
+}
+
+/* 表格内按钮 */
+.btn-edit {
+  padding: 4px 10px;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-del {
+  padding: 4px 10px;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 分页 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+
+.pagination button:hover {
+  background: #f5f5f5;
+}
+
+/* ======================================
+  3. 表单页面（新增/编辑）
+====================================== */
+.form-container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-item {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-label.required::after {
+  content: "*";
+  color: #e74c3c;
+  margin-left: 4px;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  height: 36px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+.form-error {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #e74c3c;
+}
+
+.form-footer {
+  text-align: right;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ======================================
+  4. 详情页样式
+====================================== */
+.detail-container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.detail-back {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-label {
+  width: 120px;
+  font-weight: bold;
+  color: #555;
+}
+
+.detail-content {
+  color: #333;
+}
+
+/* ======================================
+  5. 响应式 + 交互
+====================================== */
+@media (max-width: 768px) {
+  body {
+    min-width: auto;
+    padding: 0 10px;
+  }
+
+  .query-box {
+    flex-direction: column;
+  }
+
+  .table-box {
+    overflow-x: auto;
+  }
+
+  .form-container,
+  .detail-container {
+    width: 100%;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* 加载动画 */
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 表单容器（全局规范） */
+.form-container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 表单项通用 */
+.form-item {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+  font-size: 14px;
+}
+
+.form-label.required::after {
+  content: '*';
+  color: #e74c3c;
+  margin-left: 4px;
+}
+
+/* 输入框、下拉框 */
+.form-input,
+.form-select {
+  width: 100%;
+  height: 36px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+/* 多行文本框 */
+.form-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+  transition: all 0.3s;
+}
+
+.form-textarea:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+/* 单选框组 */
+.radio-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.radio-item input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #3498db;
+  cursor: pointer;
+}
+
+/* 复选框组 */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #3498db;
+  cursor: pointer;
+}
+
+/* 错误提示 */
+.form-error {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #e74c3c;
+}
+
+/* 表单底部按钮 */
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+/* 全局按钮样式 */
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-default {
+  background-color: #ecf0f1;
+  color: #333;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .form-container {
+    width: 100%;
+    padding: 20px;
+  }
+  .radio-group, .checkbox-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  vue-app:
+    build: .
+    ports:
+      - "8080:8080"  # 宿主机 8080 → 容器 8080
+    networks:
+      - frontend-network
+    restart: unless-stopped
+
+networks:
+  frontend-network:
+    driver: bridge

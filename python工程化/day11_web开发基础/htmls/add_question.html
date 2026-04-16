@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>添加题目</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2196f3;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>添加题目</h1>
+        <form method="post" action="/add">
+            <div class="form-group">
+                <label for="title">题目标题</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="content">题目内容</label>
+                <textarea id="content" name="content" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="answer">题目答案</label>
+                <textarea id="answer" name="answer" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="level">难度等级</label>
+                <select id="level" name="level" required>
+                    <option value="easy">easy</option>
+                    <option value="medium">medium</option>
+                    <option value="hard">hard</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>题目类型</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="type-choice" name="type" value="choice" required>
+                        <label for="type-choice">choice</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="type-judge" name="type" value="judge">
+                        <label for="type-judge">judge</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="type-short_answer" name="type" value="short_answer">
+                        <label for="type-short_answer">short_answer</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tags">题目标签</label>
+                <input type="text" id="tags" name="tags" placeholder="用逗号分隔多个标签" required>
+            </div>
+            <div class="form-group">
+                <label for="score">题目分数</label>
+                <input type="number" id="score" name="score" min="1" required>
+            </div>
+            <button type="submit">添加题目</button>
+            <a href="/" class="back-link">返回题目列表</a>
+        </form>
+    </div>
+</body>
+</html>
